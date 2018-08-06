@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Start_Game_Button
+  - How to play
   layers:
   - Default
   - TransparentFX

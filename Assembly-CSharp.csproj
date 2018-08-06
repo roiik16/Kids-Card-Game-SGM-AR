@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Camerabehaviour.cs" />
+    <Compile Include="Assets\Howtoplay2.cs" />
     <Compile Include="Assets\Scripts\NoARPlease.cs" />
     <Compile Include="Assets\Scripts\Start_AR.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />

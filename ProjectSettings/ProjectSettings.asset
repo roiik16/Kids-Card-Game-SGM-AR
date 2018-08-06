@@ -151,7 +151,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.SGM.Interactive number learning
+    Android: com.SGM.Interactive_number_learning
     Standalone: com.SGM.Interactive number learning
   buildNumber: {}
   AndroidBundleVersionCode: 1
