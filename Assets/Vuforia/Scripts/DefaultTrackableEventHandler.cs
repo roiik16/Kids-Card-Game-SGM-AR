@@ -72,6 +72,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         }
     }
 
+
     #endregion // PUBLIC_METHODS
 
     #region PROTECTED_METHODS
