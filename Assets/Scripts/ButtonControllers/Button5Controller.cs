@@ -21,7 +21,7 @@ public class Button5Controller : MonoBehaviour, IVirtualButtonEventHandler
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
         EnableTally.SetActive(true);
-        cubeAni.Play("FiveTallyAnim");
+        cubeAni.Play("5tallyanim");
         Debug.Log("Tally Button pressed");
     }
 

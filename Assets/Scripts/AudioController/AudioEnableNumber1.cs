@@ -14,14 +14,10 @@ public class AudioEnable : MonoBehaviour, IVirtualButtonEventHandler
         AudioBtn.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
 
         Twoplayback = GetComponent<AudioSource>();
-
-
-
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-
         Debug.Log("Audio Button pressed");
         Twoplayback.Play(1);
     }
