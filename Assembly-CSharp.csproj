@@ -61,29 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable10.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable6.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable7.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable8.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnable9.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnableNumber1.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnableNumber2.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnableNumber3.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnableNumber4.cs" />
-    <Compile Include="Assets\Scripts\AudioController\AudioEnableNumber5.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button10Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button1Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button2Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button3Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button4Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button5Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button6Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button7Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button8Controller.cs" />
-    <Compile Include="Assets\Scripts\ButtonControllers\Button9Controller.cs" />
-    <Compile Include="Assets\Scripts\QuitGame.cs" />
-    <Compile Include="Assets\Scripts\Start_AR.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\SceneChanger.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
