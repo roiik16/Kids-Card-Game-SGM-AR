@@ -10,9 +10,7 @@ using Vuforia;
 public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualButtonEventHandler
 {
     //ALL THE BELOW CODE IS USED TO DETECT TRACKING, PRINT AND CHECK.
-
-
-
+    
     protected TrackableBehaviour mTrackableBehaviour;
 
     protected virtual void Start()
@@ -55,111 +53,73 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
     public AudioClip clip; //Number Sound clip
     public GameObject vbBtnObj; //Virtual Button
     public Animator TallyAnim; //Tally animation
-
-    bool Drone;
-    bool Card2;
-    bool Card3;
-    bool Card4;
-    bool Card5;
-    bool Card6;
-    bool Card7;
-    bool Card8;
-    bool Card9;
+    
+    //Booleans created to be able to detect multiple cards at once and play the corresponding audio.
+    bool Card01;
+    bool Card02;
+    bool Card03;
+    bool Card04;
+    bool Card05;
+    bool Card06;
+    bool Card07;
+    bool Card08;
+    bool Card09;
     bool Card10;
 
     private void OnTrackingFound()
     {
-        if (mTrackableBehaviour.TrackableName == "Drone") //Card1
+        if (mTrackableBehaviour.TrackableName == "Card01") //Card1
         {
-            Drone = true;
-            Debug.Log("Drone found" + Drone);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
+            Card01 = true;
         }
 
-        if (mTrackableBehaviour.TrackableName == "2FINAL") //Cards2
+        if (mTrackableBehaviour.TrackableName == "Card02")
         {
-            Card2 = true;
-
-            Debug.Log("Card2 found" + Card2);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-           
-        }
-
-
-        if (mTrackableBehaviour.TrackableName == "3FINAL") //Cards2
-        {
-            Card3 = true;
-
-            Debug.Log("3FINAL found" + Card3);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-            
-        }
-
-        if (mTrackableBehaviour.TrackableName == "4FINAL") //Cards2
-        {
-            Card4 = true;
-
-            Debug.Log("4FINAL found" + Card3);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-           
-        }
-
-        if (mTrackableBehaviour.TrackableName == "5FINAL") //Cards2
-        {
-            Card5 = true;
-
-            Debug.Log("5FINAL found" + Card5);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
+            Card02 = true;
           
         }
-
-        if (mTrackableBehaviour.TrackableName == "6FINAL") //Cards2
-        {
-            Card6 = true;
-
-            Debug.Log("6FINAL found" + Card6);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-            
-        }
-
-        if (mTrackableBehaviour.TrackableName == "7FINAL") //Cards2
-        {
-            Card7 = true;
-
-            Debug.Log("7FINAL found" + Card7);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-           
-        }
-
-        if (mTrackableBehaviour.TrackableName == "8FINAL") //Cards2
-        {
-            Card8 = true;
-
-            Debug.Log("8FINAL found" + Card8);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-            
-        }
-
-        if (mTrackableBehaviour.TrackableName == "9FINAL") //Cards2
-        {
-            Card9 = true;
-
-            Debug.Log("9FINAL found" + Card9);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-            
-        }
-
-        if (mTrackableBehaviour.TrackableName == "10FINAL") //Cards2
-        {
-            Card10 = true;
-
-            Debug.Log("10FINAL found" + Card10);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2)); //Play Clip
-            
-        }
-
         
-        Debug.Log("Checking for matches" + Drone + Card2);
+        if (mTrackableBehaviour.TrackableName == "Card03") //Cards2
+        {
+            Card03 = true;
+            
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card04") //Cards2
+        {
+            Card04 = true;           
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card05") //Cards2
+        {
+            Card05 = true;          
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card06") //Cards2
+        {
+            Card06 = true;            
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card07") //Cards2
+        {
+            Card07 = true;         
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card08") //Cards2
+        {
+            Card08 = true;            
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card09") //Cards2
+        {
+            Card09 = true;          
+        }
+
+        if (mTrackableBehaviour.TrackableName == "Card10") //Cards2
+        {
+            Card10 = true;            
+        }
+
         CardMatch();
     }
 
@@ -168,86 +128,88 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
     {
         // Debug.Log("Checking for matches" + Drone + Fissure);
 
-        if (Drone == true && Card2 == true)
+        if (Card01 == true && Card02 == true)
         {
             Debug.Log("Both True");
         }
     }
 
-
     public void OnTrackingLost()
     {
-        Drone = false; Card2 = false; Card3 = false; Card4 = false; Card5 = false; Card6 = false; Card7 = false; Card8 = false; Card9 = false; Card10 = false;
+        Card01 = false; Card02 = false; Card03 = false; Card04 = false; Card05 = false; Card06 = false; Card07 = false; Card08 = false; Card09 = false; Card10 = false; //Releasing boolean
     }
+
+    bool WasPressed; //Bool virtual button detector
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-        if (mTrackableBehaviour.TrackableName == "Drone" && vb.name == "vb1") //Check what is the tracked name
+        if (mTrackableBehaviour.TrackableName == "CardsAttempt2" && vb.name == "vb1" && WasPressed == false) //Check what is the tracked name
         {
-            Debug.Log("I Found your drone!"); //Print info
-            TallyAnim.Play("OneTally"); //Play anim
+            Debug.Log("I Found your Attempt2 and button clicked!"); //Print info
+            TallyAnim.Play("OneTallyAnim"); //Play tally anim
+            AudioSource.PlayClipAtPoint(clip, new Vector3(171, 200, -3000), 20); //Play Clip
+            WasPressed = true; //Triggering the button pressed
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
 
-        if (mTrackableBehaviour.TrackableName == "2FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card02" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card02!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            TallyAnim.Play("TwoTally");
+            TallyAnim.Play("TwoTallyAnim");
         }
 
-        if (mTrackableBehaviour.TrackableName == "3FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card03" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card03!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            TallyAnim.Play("Threetallyanim");
         }
-        if (mTrackableBehaviour.TrackableName == "4FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card04" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
-        }
-        if (mTrackableBehaviour.TrackableName == "5FINAL" && vb.name == "vb1")
-        {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card04!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
         }
-        if (mTrackableBehaviour.TrackableName == "6FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card05" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card05!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
         }
-        if (mTrackableBehaviour.TrackableName == "7FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card06" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card06!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
         }
-        if (mTrackableBehaviour.TrackableName == "8FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card07" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card07!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
         }
-        if (mTrackableBehaviour.TrackableName == "9FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card08" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card08!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
         }
-        if (mTrackableBehaviour.TrackableName == "10FINAL" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "Card09" && vb.name == "vb1")
         {
-            Debug.Log("I Found your 2FINAL!");
+            Debug.Log("I Found your Card09!");
+            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
+
+            //TallyAnim.Play("Testanim2");
+        }
+        if (mTrackableBehaviour.TrackableName == "Card10" && vb.name == "vb1")
+        {
+            Debug.Log("I Found your Card10!");
             AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
 
             //TallyAnim.Play("Testanim2");
@@ -257,6 +219,14 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
     //ON VIRTUAL BUTTON RELEASE
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
-        TallyAnim.Play("None");
+       //PUT ANYTHING RELATED TO BUTTON RELEASE
+    }
+
+
+
+    IEnumerator DelayedMethod() //Delaying the button presses
+    {
+        yield return new WaitForSeconds(5); //set to 5 seconds
+        WasPressed = false; //Reset presses
     }
 }

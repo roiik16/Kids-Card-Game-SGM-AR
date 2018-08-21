@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="CardsAttempt2" size="1080.000000 1920.000000" />
-    <ImageTarget name="te0" size="1080.000000 1920.000000" />
-    <ImageTarget name="1FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="10FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="9FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="8FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="7FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="6FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="5FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="4FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="3FINAL" size="950.000000 1688.888916" />
-    <ImageTarget name="2FINAL" size="950.000000 1688.888916" />
+    <ImageTarget name="card10" size="1080.000000 1920.000000" />
+    <ImageTarget name="card09" size="1080.000000 1920.000000" />
+    <ImageTarget name="card08" size="1080.000000 1920.000000" />
+    <ImageTarget name="card07" size="1080.000000 1920.000000" />
+    <ImageTarget name="card06" size="1080.000000 1920.000000" />
+    <ImageTarget name="card05" size="1080.000000 1920.000000" />
+    <ImageTarget name="card04" size="1080.000000 1920.000000" />
+    <ImageTarget name="card03" size="1080.000000 1920.000000" />
+    <ImageTarget name="card02" size="1080.000000 1920.000000" />
+    <ImageTarget name="card01" size="1080.000000 1920.000000" />
   </Tracking>
 </QCARConfig>
