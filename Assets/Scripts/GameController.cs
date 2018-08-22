@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
-//CARD CONTROLLER SCRIPT
+//card CONTROLLER SCRIPT
 //THIS SCRIPT MUST BE APPLIED TO ALL IMAGE TARGETS IN ORDER FOR EVERY TARGET TO WORK
 
 [RequireComponent(typeof(AudioSource))]
@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
 
         vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
         TallyAnim.GetComponent<Animator>();
+        Numberaudio = GetComponent<AudioSource>();
     }
 
     protected virtual void OnDestroy()
@@ -49,184 +50,185 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
             OnTrackingLost();
         }
     }
-
-    public AudioClip clip; //Number Sound clip
+    public AudioSource Numberaudio;
     public GameObject vbBtnObj; //Virtual Button
     public Animator TallyAnim; //Tally animation
     
     //Booleans created to be able to detect multiple cards at once and play the corresponding audio.
-    bool Card01;
-    bool Card02;
-    bool Card03;
-    bool Card04;
-    bool Card05;
-    bool Card06;
-    bool Card07;
-    bool Card08;
-    bool Card09;
-    bool Card10;
+    bool card01; bool card02; bool card03; bool card04; bool card05; bool card06; bool card07; bool card08; bool card09; bool card10;
 
     private void OnTrackingFound()
     {
-        if (mTrackableBehaviour.TrackableName == "Card01") //Card1
+        if (mTrackableBehaviour.TrackableName == "card01") //card1
         {
-            Card01 = true;
+            card01 = true;
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card02")
+        if (mTrackableBehaviour.TrackableName == "card02")
         {
-            Card02 = true;
-          
+            card02 = true;
+           
         }
         
-        if (mTrackableBehaviour.TrackableName == "Card03") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card03") 
         {
-            Card03 = true;
+            card03 = true;
             
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card04") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card04") 
         {
-            Card04 = true;           
+            card04 = true;           
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card05") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card05") 
         {
-            Card05 = true;          
+            card05 = true;          
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card06") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card06") 
         {
-            Card06 = true;            
+            card06 = true;            
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card07") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card07") 
         {
-            Card07 = true;         
+            card07 = true;         
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card08") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card08") 
         {
-            Card08 = true;            
+            card08 = true;            
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card09") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card09") 
         {
-            Card09 = true;          
+            card09 = true;          
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card10") //Cards2
+        if (mTrackableBehaviour.TrackableName == "card10") 
         {
-            Card10 = true;            
+            card10 = true;            
         }
 
-        CardMatch();
-    }
-
-    //CardMatch - To detect if two cards have been found and play matched audio clip
-    public void CardMatch()
+        cardMatch();
+    } //When Card is scanned
+   
+    public void cardMatch()
     {
         // Debug.Log("Checking for matches" + Drone + Fissure);
-
-        if (Card01 == true && Card02 == true)
+        if (card01 == true && card02 == true)
         {
             Debug.Log("Both True");
         }
-    }
+    } //cardMatch - To detect if two cards have been found and play matched audio clip
 
     public void OnTrackingLost()
     {
-        Card01 = false; Card02 = false; Card03 = false; Card04 = false; Card05 = false; Card06 = false; Card07 = false; Card08 = false; Card09 = false; Card10 = false; //Releasing boolean
+        card01 = false; card02 = false; card03 = false; card04 = false; card05 = false; card06 = false; card07 = false; card08 = false; card09 = false; card10 = false; //Releasing boolean
+        TallyAnim.Play("None");
     }
 
     bool WasPressed; //Bool virtual button detector
+    bool animationreset; //Bool animation reset
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-        if (mTrackableBehaviour.TrackableName == "CardsAttempt2" && vb.name == "vb1" && WasPressed == false) //Check what is the tracked name
+        if (mTrackableBehaviour.TrackableName == "card01" && vb.name == "vb1" && WasPressed == false) //Check what is the tracked name
         {
             Debug.Log("I Found your Attempt2 and button clicked!"); //Print info
             TallyAnim.Play("OneTallyAnim"); //Play tally anim
-            AudioSource.PlayClipAtPoint(clip, new Vector3(171, 200, -3000), 20); //Play Clip
+            Numberaudio.Play(); ; //Play Clip
+            WasPressed = true; //Triggering the button pressed
+            animationreset = true; //Animation reset
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
+     
+        }
+
+        if (mTrackableBehaviour.TrackableName == "card02" && vb.name == "vb1" && WasPressed == false)
+        {
+            TallyAnim.Play("TwoTally");
+            Numberaudio.Play();
             WasPressed = true; //Triggering the button pressed
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
 
-        if (mTrackableBehaviour.TrackableName == "Card02" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card03" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card02!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-            TallyAnim.Play("TwoTallyAnim");
-        }
-
-        if (mTrackableBehaviour.TrackableName == "Card03" && vb.name == "vb1")
-        {
-            Debug.Log("I Found your Card03!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
+            Debug.Log("I Found your card03!");
+            Numberaudio.Play();
             TallyAnim.Play("Threetallyanim");
+            WasPressed = true; //Triggering the button pressed
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card04" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card04" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card04!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card04!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("4Tallyanim");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card05" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card05" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card05!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card05!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("5tallyanim");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card06" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card06" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card06!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card06!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("6tallyanim");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card07" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card07" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card07!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card07!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("7Tally");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card08" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card08" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card08!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card08!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("8Tallyanim");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card09" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card09" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card09!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card09!");
+            Numberaudio.Play();
+            WasPressed = true; //Triggering the button pressed
+            TallyAnim.Play("9Tallyanim");
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
-        if (mTrackableBehaviour.TrackableName == "Card10" && vb.name == "vb1")
+        if (mTrackableBehaviour.TrackableName == "card10" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your Card10!");
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 2));
-
-            //TallyAnim.Play("Testanim2");
+            Debug.Log("I Found your card10!");
+            Numberaudio.Play();
+            WasPressed = true;
+            TallyAnim.Play("10Tallyanim");
+            StartCoroutine(DelayedMethod()); 
         }
-    }
+    } //When virtual button is pressed
 
-    //ON VIRTUAL BUTTON RELEASE
-    public void OnButtonReleased(VirtualButtonBehaviour vb)
+
+    public void OnButtonReleased(VirtualButtonBehaviour vb) //When virtual button is released
     {
+              
        //PUT ANYTHING RELATED TO BUTTON RELEASE
     }
-
-
-
+    
     IEnumerator DelayedMethod() //Delaying the button presses
     {
-        yield return new WaitForSeconds(5); //set to 5 seconds
+        yield return new WaitForSeconds(5); //set to 5 seconds delay until the play button is set to recieve commands
         WasPressed = false; //Reset presses
     }
 }
