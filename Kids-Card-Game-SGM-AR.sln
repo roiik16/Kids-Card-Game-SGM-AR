@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kids-Card-Game-SGM-AR", "Assembly-CSharp.csproj", "{80D869BC-B4EB-6DD2-4944-DA46187A5866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{80D869BC-B4EB-6DD2-4944-DA46187A5866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kids-Card-Game-SGM-AR", "Assembly-CSharp-Editor.csproj", "{4A395D4F-1AFB-1AF6-2A25-7D909AFDEC1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{4A395D4F-1AFB-1AF6-2A25-7D909AFDEC1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

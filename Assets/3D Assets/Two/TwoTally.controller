@@ -52,7 +52,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TwoTally
+  m_Name: TwoTallyAnim
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -81,10 +81,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102796670855742568}
-    m_Position: {x: 384, y: 216, z: 0}
+    m_Position: {x: 228, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102256464614469864}
-    m_Position: {x: 387.6953, y: 65.50391, z: 0}
+    m_Position: {x: 24, y: 312, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

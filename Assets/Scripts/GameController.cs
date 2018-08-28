@@ -64,49 +64,49 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
             card01 = true;
         }
 
-        if (mTrackableBehaviour.TrackableName == "card02")
+        if (mTrackableBehaviour.TrackableName == "card02") //card2
         {
             card02 = true;
            
         }
         
-        if (mTrackableBehaviour.TrackableName == "card03") 
+        if (mTrackableBehaviour.TrackableName == "card03") //card3
         {
             card03 = true;
             
         }
 
-        if (mTrackableBehaviour.TrackableName == "card04") 
+        if (mTrackableBehaviour.TrackableName == "card04") //card4
         {
             card04 = true;           
         }
 
-        if (mTrackableBehaviour.TrackableName == "card05") 
+        if (mTrackableBehaviour.TrackableName == "card05") //card5
         {
             card05 = true;          
         }
 
-        if (mTrackableBehaviour.TrackableName == "card06") 
+        if (mTrackableBehaviour.TrackableName == "card06") //card6
         {
             card06 = true;            
         }
 
-        if (mTrackableBehaviour.TrackableName == "card07") 
+        if (mTrackableBehaviour.TrackableName == "card07") //card7
         {
             card07 = true;         
         }
 
-        if (mTrackableBehaviour.TrackableName == "card08") 
+        if (mTrackableBehaviour.TrackableName == "card08") //card8
         {
             card08 = true;            
         }
 
-        if (mTrackableBehaviour.TrackableName == "card09") 
+        if (mTrackableBehaviour.TrackableName == "card09") //card9
         {
             card09 = true;          
         }
 
-        if (mTrackableBehaviour.TrackableName == "card10") 
+        if (mTrackableBehaviour.TrackableName == "card10") //card10
         {
             card10 = true;            
         }
@@ -136,7 +136,7 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
     {
         if (mTrackableBehaviour.TrackableName == "card01" && vb.name == "vb1" && WasPressed == false) //Check what is the tracked name
         {
-            Debug.Log("I Found your Attempt2 and button clicked!"); //Print info
+            Debug.Log("I Found your card01!"); //Print info
             TallyAnim.Play("OneTallyAnim"); //Play tally anim
             Numberaudio.Play(); ; //Play Clip
             WasPressed = true; //Triggering the button pressed
@@ -147,75 +147,76 @@ public class GameController : MonoBehaviour, ITrackableEventHandler, IVirtualBut
 
         if (mTrackableBehaviour.TrackableName == "card02" && vb.name == "vb1" && WasPressed == false)
         {
-            TallyAnim.Play("TwoTally");
-            Numberaudio.Play();
+            Debug.Log("I Found your card02!"); //Print info
+            TallyAnim.Play("TwoTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
 
         if (mTrackableBehaviour.TrackableName == "card03" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card03!");
-            Numberaudio.Play();
-            TallyAnim.Play("Threetallyanim");
+            Debug.Log("I Found your card03!"); //Print info
+            TallyAnim.Play("ThreeTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card04" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card04!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card04!"); //Print info
+            TallyAnim.Play("FourTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("4Tallyanim");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card05" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card05!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card05!"); //Print info
+            TallyAnim.Play("FiveTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("5tallyanim");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card06" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card06!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card06!"); //Print info
+            TallyAnim.Play("SixTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("6tallyanim");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card07" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card07!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card07!"); //Print info
+            TallyAnim.Play("SevenTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("7Tally");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card08" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card08!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card08!"); //Print info
+            TallyAnim.Play("EightTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("8Tallyanim");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card09" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card09!");
-            Numberaudio.Play();
+            Debug.Log("I Found your card09!"); //Print info
+            TallyAnim.Play("NineTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
             WasPressed = true; //Triggering the button pressed
-            TallyAnim.Play("9Tallyanim");
             StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
         if (mTrackableBehaviour.TrackableName == "card10" && vb.name == "vb1" && WasPressed == false)
         {
-            Debug.Log("I Found your card10!");
-            Numberaudio.Play();
-            WasPressed = true;
-            TallyAnim.Play("10Tallyanim");
-            StartCoroutine(DelayedMethod()); 
+            Debug.Log("I Found your card10!"); //Print info
+            TallyAnim.Play("TenTallyAnim"); //Play tally anim
+            Numberaudio.Play(); //Play Clip
+            WasPressed = true; //Triggering the button pressed
+            StartCoroutine(DelayedMethod()); // DISABLING MULTIPLE PRESSES AT ONE GO (A MUST WITH VUFORIA VIRTUAL BUTTON DUE TO LIGHTING TRIGGERING IT)
         }
     } //When virtual button is pressed
 
